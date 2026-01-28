@@ -1,8 +1,16 @@
+import java.time.LocalDate;
+
 public class UniversityManager {
     private String universityName;
-    public Subject[] subjectArray = new Subject[10];
-    public int subjectIndex = 0;
-    public int generalId = 1;
+    //subject
+    private Subject[] subjectArray = new Subject[10];
+    private int subjectIndex = 0;
+
+    private int generalId = 1;
+
+    //dean
+    private Dean[] deanArray = new Dean[10];
+    private int deanIndex = 0;
 
     public UniversityManager(String universityName) {
         this.universityName = universityName;
@@ -40,7 +48,7 @@ public class UniversityManager {
 
     public Subject getSubjectById(int id) {
         for (Subject s : subjectArray) {
-            if (s != null && s.getId() == id) {
+            if (s != null && s.getId().equals(id)) {
                 return s;
             }
         }
@@ -56,4 +64,47 @@ public class UniversityManager {
         }
         return null;
     }
+
+    /*
+     * Dean
+     */
+    public Dean createDean(String name, String surname, Integer age, String birthDate, String faculty, Double salary) {
+        //check Dean exists
+        Dean exists = getDeanByFaculty(faculty);
+        if (exists != null){
+            System.out.println("Dean from this faculty exists");
+            return null;
+        }
+
+        Dean dean = new Dean();
+        dean.setId(generalId++);
+        dean.setName(name);
+        dean.setSurname(surname);
+        dean.setAge(age);
+        dean.setBirthDate(birthDate);
+        dean.setFaculty(faculty);
+        dean.setSalary(salary);
+        dean.setEmployedDate(LocalDate.now());
+
+        if (deanArray.length == deanIndex) {
+            Dean[] newArray = new Dean[deanArray.length * 2];
+            for (int i = 0; i < deanArray.length; i++) {
+                newArray[i] = deanArray[i];
+            }
+            deanArray = newArray;
+        }
+        deanArray[deanIndex++] = dean;
+        return dean;
+    }
+
+    public Dean getDeanByFaculty(String faculty) {
+        for (Dean dean : deanArray) {
+            if (dean != null && dean.getFaculty().equals(faculty)) {
+                return dean;
+            }
+        }
+        return null;
+    }
+
+
 }
