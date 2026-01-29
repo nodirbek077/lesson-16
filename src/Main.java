@@ -26,8 +26,9 @@ public class Main {
          */
         Dean dean1 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Math", 12.1);
         Dean dean2 = university.createDean("Vali", "Valiyev", 20, "20.06.2012", "IT", 10.1);
-        Dean dean3 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Math", 22.1);
+        Dean dean3 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Mathe", 22.1);
 
-        System.out.println(dean1);
+//        System.out.println(university.getDeanById(dean1.getId()));
+        System.out.println(university.getDeanEmployedDateById(dean1.getId()));
     }
 }

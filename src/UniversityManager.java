@@ -1,3 +1,4 @@
+import java.security.PublicKey;
 import java.time.LocalDate;
 
 public class UniversityManager {
@@ -71,7 +72,7 @@ public class UniversityManager {
     public Dean createDean(String name, String surname, Integer age, String birthDate, String faculty, Double salary) {
         //check Dean exists
         Dean exists = getDeanByFaculty(faculty);
-        if (exists != null){
+        if (exists != null) {
             System.out.println("Dean from this faculty exists");
             return null;
         }
@@ -106,5 +107,21 @@ public class UniversityManager {
         return null;
     }
 
+    public Dean getDeanById(Integer id) {
+        for (Dean dean : deanArray) {
+            if (dean != null && dean.getId().equals(id)) {
+                return dean;
+            }
+        }
+        return null;
+    }
 
+    public LocalDate getDeanEmployedDateById(Integer id){
+        for (Dean dean : deanArray) {
+            if (dean != null && dean.getId().equals(id)){
+                return dean.getEmployedDate();
+            }
+        }
+        return null;
+    }
 }
