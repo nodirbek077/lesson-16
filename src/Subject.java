@@ -26,4 +26,13 @@ public class Subject {
     public void setSemester(int semester) {
         this.semester = semester;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", semester=" + semester +
+                '}';
+    }
 }

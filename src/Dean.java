@@ -73,4 +73,18 @@ public class Dean {
     public void setEmployedDate(LocalDate employedDate) {
         this.employedDate = employedDate;
     }
+
+    @Override
+    public String toString() {
+        return "Dean{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", birthDate='" + birthDate + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", salary=" + salary +
+                ", employedDate=" + employedDate +
+                '}';
+    }
 }
