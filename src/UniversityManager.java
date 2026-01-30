@@ -13,6 +13,10 @@ public class UniversityManager {
     private Dean[] deanArray = new Dean[10];
     private int deanIndex = 0;
 
+    //Security
+    private Security[] securityArray = new Security[10];
+    private int securityIndex = 0;
+
     public UniversityManager(String universityName) {
         this.universityName = universityName;
     }
@@ -116,12 +120,36 @@ public class UniversityManager {
         return null;
     }
 
-    public LocalDate getDeanEmployedDateById(Integer id){
+    public LocalDate getDeanEmployedDateById(Integer id) {
         for (Dean dean : deanArray) {
-            if (dean != null && dean.getId().equals(id)){
+            if (dean != null && dean.getId().equals(id)) {
                 return dean.getEmployedDate();
             }
         }
         return null;
+    }
+
+    /*
+       Security
+     */
+    public Security createSecurity(String name, String surname, Integer age, String birthDate, Double salary, String militaryRank) {
+        Security security = new Security();
+        security.setId(generalId++);
+        security.setName(name);
+        security.setSurname(surname);
+        security.setAge(age);
+        security.setBirthDate(birthDate);
+        security.setSalary(salary);
+        security.setMilitaryRank(militaryRank);
+
+        if (securityArray.length == securityIndex) {
+            Security[] newArray = new Security[securityArray.length * 2];
+            for (int i = 0; i < securityArray.length; i++) {
+                newArray[i] = securityArray[i];
+            }
+            securityArray = newArray;
+        }
+        securityArray[securityIndex++] = security;
+        return security;
     }
 }
