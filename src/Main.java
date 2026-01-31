@@ -53,12 +53,28 @@ public class Main {
             }
         }*/
 
+        /*
+         * Professor
+         */
         Professor professor1 = university.createProfessor("Alibek", "Aliyev", 35, "21.01.1996", subjectJava.getId(), 3400.0);
         Professor professor2 = university.createProfessor("Nodirbek", "Nodirbek", 38, "21.06.1996", subjectJava.getId(), 5000.0);
         Professor professor3 = university.createProfessor("Malika", "Sulaymonova", 40, "01.09.2000", subjectMath.getId(), 1400.0);
 
-        System.out.println(professor1);
+        /*System.out.println(professor1);
         System.out.println(professor2);
         System.out.println(professor3);
+
+        Professor professorById = university.getProfessorById(professor1.getId());
+        System.out.println(professorById);
+
+        Professor professorByNameAndBySurname = university.getProfessorByNameAndBySurname("Alibek", "Aliyev");
+        System.out.println(professorByNameAndBySurname);
+*/
+        Professor[] professorListBySubjectId = university.getProfessorListBySubjectId(subjectJava.getId());
+        for (Professor professor : professorListBySubjectId) {
+            if (professor != null){
+                System.out.println(professor);
+            }
+        }
     }
 }

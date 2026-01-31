@@ -202,4 +202,35 @@ public class UniversityManager {
         professorArray[professorIndex++] = professor;
         return professor;
     }
+
+    public Professor getProfessorById(Integer id) {
+        for (Professor professor : professorArray) {
+            if (professor != null && professor.getId().equals(id)) {
+                return professor;
+            }
+        }
+        return null;
+    }
+
+    public Professor getProfessorByNameAndBySurname(String name, String surname) {
+        for (Professor professor : professorArray) {
+            if (professor != null && professor.getName().equals(name) && professor.getSurname().equals(surname)) {
+                return professor;
+            }
+        }
+        return null;
+    }
+
+    public Professor[] getProfessorListBySubjectId(Integer subjectId) {
+
+        Professor[] tempArray = new Professor[professorIndex++];
+        int tempIndex = 0;
+        for (Professor professor : professorArray) {
+            if (professor != null && professor.getSubject().getId().equals(subjectId)) {
+                tempArray[tempIndex++] = professor;
+            }
+        }
+
+        return tempArray;
+    }
 }
