@@ -41,7 +41,17 @@ public class Main {
         /*
           Security
          */
-        Security security = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General Mayyor");
-        System.out.println(security);
+        Security security1 = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General");
+        Security security2 = university.createSecurity("Lazizbek", "Nurqulov", 39, "1996-06-21", 2500.0, "General");
+        Security security3 = university.createSecurity("Nodirbek", "Nurqulov", 49, "1996-06-21", 2500.0, "Mayyor");
+//        System.out.println(security);
+
+        Security[] securityArrayTemp = university.getSecurityListByMilitaryRank("General");
+        for (Security security : securityArrayTemp) {
+            if (security != null) {
+                System.out.println(security);
+            }
+        }
+
     }
 }

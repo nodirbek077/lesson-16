@@ -152,4 +152,19 @@ public class UniversityManager {
         securityArray[securityIndex++] = security;
         return security;
     }
+
+    public Security[] getSecurityListByMilitaryRank(String militaryRank) {
+
+        Security[] tempArray = new Security[securityIndex];
+        int index = 0;
+        for (Security security : securityArray) {
+            if (security != null && security.getMilitaryRank().contains(militaryRank)) {
+//                System.out.println(security);
+                tempArray[index++] = security;
+
+            }
+        }
+
+        return tempArray;
+    }
 }
