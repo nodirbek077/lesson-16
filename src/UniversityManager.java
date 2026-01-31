@@ -17,6 +17,10 @@ public class UniversityManager {
     private Security[] securityArray = new Security[10];
     private int securityIndex = 0;
 
+    //Professor
+    private Professor[] professorArray = new Professor[10];
+    private int professorIndex = 0;
+
     public UniversityManager(String universityName) {
         this.universityName = universityName;
     }
@@ -166,5 +170,36 @@ public class UniversityManager {
         }
 
         return tempArray;
+    }
+
+    /*
+        Professor
+     */
+
+    public Professor createProfessor(String name, String surname, Integer age, String birthDate, Integer subjectId, Double salary) {
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null) {
+            System.out.println("Subject not found!");
+            return null;
+        }
+
+        Professor professor = new Professor();
+        professor.setId(generalId++);
+        professor.setName(name);
+        professor.setSurname(surname);
+        professor.setAge(age);
+        professor.setBirthDate(birthDate);
+        professor.setSubject(subject);
+        professor.setSalary(salary);
+
+        if (professorArray.length == professorIndex) {
+            Professor[] newArray = new Professor[professorArray.length * 2];
+            for (int i = 0; i < professorArray.length; i++) {
+                newArray[i] = professorArray[i];
+            }
+            professorArray = newArray;
+        }
+        professorArray[professorIndex++] = professor;
+        return professor;
     }
 }

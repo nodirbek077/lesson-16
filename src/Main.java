@@ -41,7 +41,7 @@ public class Main {
         /*
           Security
          */
-        Security security1 = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General");
+        /*Security security1 = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General");
         Security security2 = university.createSecurity("Lazizbek", "Nurqulov", 39, "1996-06-21", 2500.0, "General");
         Security security3 = university.createSecurity("Nodirbek", "Nurqulov", 49, "1996-06-21", 2500.0, "Mayyor");
 //        System.out.println(security);
@@ -51,7 +51,14 @@ public class Main {
             if (security != null) {
                 System.out.println(security);
             }
-        }
+        }*/
 
+        Professor professor1 = university.createProfessor("Alibek", "Aliyev", 35, "21.01.1996", subjectJava.getId(), 3400.0);
+        Professor professor2 = university.createProfessor("Nodirbek", "Nodirbek", 38, "21.06.1996", subjectJava.getId(), 5000.0);
+        Professor professor3 = university.createProfessor("Malika", "Sulaymonova", 40, "01.09.2000", subjectMath.getId(), 1400.0);
+
+        System.out.println(professor1);
+        System.out.println(professor2);
+        System.out.println(professor3);
     }
 }
