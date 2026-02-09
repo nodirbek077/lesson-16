@@ -261,4 +261,42 @@ public class UniversityManager {
         studentArray[studentIndex++] = student;
         return student;
     }
+
+    public Student getStudentById(Integer id) {
+        for (Student student : studentArray) {
+            if (student != null && student.getId().equals(id)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public Student[] getStudentListByLevel(Integer level) {
+        Student[] tempArray = new Student[studentIndex];
+        int tempIndex = 0;
+        for (Student student : studentArray) {
+            if (student != null && student.getLevel().equals(level)) {
+                tempArray[tempIndex++] = student;
+            }
+        }
+        return tempArray;
+    }
+
+    public Student addSubjectToStudent(Integer studentId, Integer subjectId){
+        Student student = getStudentById(studentId);
+        if (student == null){
+            System.out.println("Student not found");
+            return null;
+        }
+
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null){
+            System.out.println("Subject not found");
+            return null;
+        }
+
+        student.addSubject(subject);
+
+        return student;
+    }
 }

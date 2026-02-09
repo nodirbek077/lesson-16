@@ -70,22 +70,39 @@ public class Main {
         Professor professorByNameAndBySurname = university.getProfessorByNameAndBySurname("Alibek", "Aliyev");
         System.out.println(professorByNameAndBySurname);
 */
-        Professor[] professorListBySubjectId = university.getProfessorListBySubjectId(subjectJava.getId());
+        /*Professor[] professorListBySubjectId = university.getProfessorListBySubjectId(subjectJava.getId());
         for (Professor professor : professorListBySubjectId) {
             if (professor != null){
                 System.out.println(professor);
             }
-        }
+        }*/
 
         /*
            Student
          */
-        Student student1 = university.createStudent("Nodirbek", "Nurqulov", 23, "21.06.1996", 4);
+        Student student1 = university.createStudent("Nodirbek", "Nurqulov", 23, "21.06.1996", 1);
         Student student2 = university.createStudent("Lazizbek", "Nurqulov", 27, "09.11.1998", 2);
         Student student3 = university.createStudent("Xasan", "Nurqulov", 20, "27.10.2000", 1);
 
-        System.out.println(student1.getName());
+        /*System.out.println(student1.getName());
         System.out.println(student2);
-        System.out.println(student3);
+        System.out.println(student3);*/
+
+        /*Student student1ById = university.getStudentById(student1.getId());
+        System.out.println(student1ById);
+*/
+        /*Student[] tempStudentArray = university.getStudentListByLevel(11);
+        for (Student student : tempStudentArray){
+            if (student != null){
+                System.out.println(student);
+            }
+        }*/
+
+        university.addSubjectToStudent(student1.getId(), subjectJava.getId());
+        university.addSubjectToStudent(student1.getId(), subjectJava.getId());
+        university.addSubjectToStudent(student2.getId(), subjectJava.getId());
+        university.addSubjectToStudent(student2.getId(), subjectJava.getId());
+
+        System.out.println(student1);
     }
 }
