@@ -6,6 +6,16 @@ public class Person {
     protected String birthDate;
     protected Double salary;
 
+    //bunga shunaqa qilib parameterli konstruktorni ham berib ketsak bo'ladi bu ham bir variant
+    /*public Person(Integer id, String name, String surname, Integer age, String birthDate, Double salary) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.birthDate = birthDate;
+        this.salary = salary;
+    }*/
+
     public Integer getId() {
         return id;
     }

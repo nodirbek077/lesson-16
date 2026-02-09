@@ -183,6 +183,7 @@ public class UniversityManager {
             return null;
         }
 
+//        Professor professor = new Professor(generalId++,name,surname,age, birthDate,salary,subject);
         Professor professor = new Professor();
         professor.setId(generalId++);
         professor.setName(name);
