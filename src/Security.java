@@ -10,7 +10,7 @@ public class Security extends Person{
         this.militaryRank = militaryRank;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "Security{" +
                 "name='" + name + '\'' +
@@ -20,5 +20,5 @@ public class Security extends Person{
                 ", salary=" + salary +
                 ", militaryRank='" + militaryRank + '\'' +
                 '}';
-    }*/
+    }
 }

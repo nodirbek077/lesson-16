@@ -20,7 +20,7 @@ public class Dean extends Person {
         this.employedDate = employedDate;
     }
 
-/*    @Override
+    @Override
     public String toString() {
         return "Dean{" +
                 "id=" + id +
@@ -32,5 +32,5 @@ public class Dean extends Person {
                 ", salary=" + salary +
                 ", employedDate=" + employedDate +
                 '}';
-    }*/
+    }
 }

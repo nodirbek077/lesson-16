@@ -9,7 +9,7 @@ public class Professor extends Person{
         this.subject = subject;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "Professor{" +
                 "id=" + id +
@@ -20,5 +20,5 @@ public class Professor extends Person{
                 ", subject=" + subject +
                 ", salary=" + salary +
                 '}';
-    }*/
+    }
 }
