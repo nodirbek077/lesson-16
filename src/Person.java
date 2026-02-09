@@ -4,7 +4,6 @@ public class Person {
     protected String surname;
     protected Integer age;
     protected String birthDate;
-    protected Double salary;
 
     //bunga shunaqa qilib parameterli konstruktorni ham berib ketsak bo'ladi bu ham bir variant
     /*public Person(Integer id, String name, String surname, Integer age, String birthDate, Double salary) {
@@ -54,13 +53,5 @@ public class Person {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Double salary) {
-        this.salary = salary;
     }
 }

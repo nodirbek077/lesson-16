@@ -76,5 +76,16 @@ public class Main {
                 System.out.println(professor);
             }
         }
+
+        /*
+           Student
+         */
+        Student student1 = university.createStudent("Nodirbek", "Nurqulov", 23, "21.06.1996", 4);
+        Student student2 = university.createStudent("Lazizbek", "Nurqulov", 27, "09.11.1998", 2);
+        Student student3 = university.createStudent("Xasan", "Nurqulov", 20, "27.10.2000", 1);
+
+        System.out.println(student1.getName());
+        System.out.println(student2);
+        System.out.println(student3);
     }
 }

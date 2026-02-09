@@ -21,6 +21,10 @@ public class UniversityManager {
     private Professor[] professorArray = new Professor[10];
     private int professorIndex = 0;
 
+    //Student
+    private Student[] studentArray = new Student[10];
+    private int studentIndex = 0;
+
     public UniversityManager(String universityName) {
         this.universityName = universityName;
     }
@@ -233,5 +237,28 @@ public class UniversityManager {
         }
 
         return tempArray;
+    }
+
+    /*
+     * Student
+     */
+    public Student createStudent(String name, String surname, Integer age, String birthDate, Integer level) {
+        Student student = new Student();
+        student.setId(generalId++);
+        student.setName(name);
+        student.setSurname(surname);
+        student.setAge(age);
+        student.setBirthDate(birthDate);
+        student.setLevel(level);
+
+        if (studentArray.length == studentIndex) {
+            Student[] newArr = new Student[studentArray.length * 2];
+            for (int i = 0; i < studentArray.length; i++) {
+                newArr[i] = studentArray[i];
+            }
+            studentArray = newArr;
+        }
+        studentArray[studentIndex++] = student;
+        return student;
     }
 }

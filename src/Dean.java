@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Dean extends Person {
+public class Dean extends Employee {
     private String faculty;
     private LocalDate employedDate;
 

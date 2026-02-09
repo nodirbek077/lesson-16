@@ -1,4 +1,4 @@
-public class Professor extends Person{
+public class Professor extends Employee{
     private Subject subject;
 
     //shu yerda constructorni ham ishlatrib ketishimiz mumkin agar parentda parameterli konstruktor qo'shilgan bo'lsa

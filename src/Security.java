@@ -1,4 +1,4 @@
-public class Security extends Person{
+public class Security extends Employee{
 
     private String militaryRank;
 
