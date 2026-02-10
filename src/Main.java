@@ -103,7 +103,7 @@ public class Main {
         university.addSubjectToStudent(student2.getId(), subjectJava.getId());
         university.addSubjectToStudent(student3.getId(), subjectJava.getId());
 
-        Student[] tempStudentArray = university.getStudentListBySubjectId(subjectMath.getId());
+        Student[] tempStudentArray = university.getStudentListBySubjectId(subjectJava.getId());
         for (Student student : tempStudentArray) {
             if (student != null) {
                 System.out.println(student);

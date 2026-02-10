@@ -54,8 +54,4 @@ public class Subject {
     public Student[] getStudentArray() {
         return studentArray;
     }
-
-    public void setStudentArray(Student[] studentArray) {
-        this.studentArray = studentArray;
-    }
 }

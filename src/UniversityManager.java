@@ -58,7 +58,7 @@ public class UniversityManager {
         return subject;
     }
 
-    public Subject getSubjectById(int id) {
+    public Subject getSubjectById(Integer id) {
         for (Subject s : subjectArray) {
             if (s != null && s.getId().equals(id)) {
                 return s;
@@ -302,7 +302,7 @@ public class UniversityManager {
 
     public Student[] getStudentListBySubjectId(Integer subjectId) {
         //first way
-        Student[] tempArr = new Student[10];
+        /*Student[] tempArr = new Student[10];
         int tempIndex = 0;
         for (Student student : studentArray) {
             if (student == null)
@@ -314,9 +314,14 @@ public class UniversityManager {
             }
         }
         return tempArr;
-
+*/
         //solve this method second way
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null){
+            System.out.println("Subject not found. Mazgi");
+            return new Student[0];
+        }
 
-
+        return subject.getStudentArray();
     }
 }
