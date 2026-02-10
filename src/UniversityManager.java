@@ -1,4 +1,3 @@
-import java.security.PublicKey;
 import java.time.LocalDate;
 
 public class UniversityManager {
@@ -282,21 +281,42 @@ public class UniversityManager {
         return tempArray;
     }
 
-    public Student addSubjectToStudent(Integer studentId, Integer subjectId){
+    public Student addSubjectToStudent(Integer studentId, Integer subjectId) {
         Student student = getStudentById(studentId);
-        if (student == null){
+        if (student == null) {
             System.out.println("Student not found");
             return null;
         }
 
         Subject subject = getSubjectById(subjectId);
-        if (subject == null){
+        if (subject == null) {
             System.out.println("Subject not found");
             return null;
         }
 
         student.addSubject(subject);
+        subject.addStudent(student);
 
         return student;
+    }
+
+    public Student[] getStudentListBySubjectId(Integer subjectId) {
+        //first way
+        Student[] tempArr = new Student[10];
+        int tempIndex = 0;
+        for (Student student : studentArray) {
+            if (student == null)
+                continue;
+            for (Subject subject : student.getSubjectArray()) {
+                if (subject != null && subject.getId().equals(subjectId)) {
+                    tempArr[tempIndex++] = student;
+                }
+            }
+        }
+        return tempArr;
+
+        //solve this method second way
+
+
     }
 }

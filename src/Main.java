@@ -99,10 +99,15 @@ public class Main {
         }*/
 
         university.addSubjectToStudent(student1.getId(), subjectJava.getId());
-        university.addSubjectToStudent(student1.getId(), subjectJava.getId());
+        university.addSubjectToStudent(student1.getId(), subjectMath.getId());
         university.addSubjectToStudent(student2.getId(), subjectJava.getId());
-        university.addSubjectToStudent(student2.getId(), subjectJava.getId());
+        university.addSubjectToStudent(student3.getId(), subjectJava.getId());
 
-        System.out.println(student1);
+        Student[] tempStudentArray = university.getStudentListBySubjectId(subjectMath.getId());
+        for (Student student : tempStudentArray) {
+            if (student != null) {
+                System.out.println(student);
+            }
+        }
     }
 }
