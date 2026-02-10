@@ -2,8 +2,6 @@ import java.time.LocalDate;
 
 public class Exam {
     private Integer id;
-    private Integer studentId;
-    private Integer subjectId;
     private Student student;
     private Subject subject;
     private Integer grade;
@@ -18,19 +16,11 @@ public class Exam {
     }
 
     public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+        return student.getId();
     }
 
     public Integer getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(Integer subjectId) {
-        this.subjectId = subjectId;
+        return subject.getId();
     }
 
     public Student getStudent() {
@@ -69,8 +59,6 @@ public class Exam {
     public String toString() {
         return "Exam{" +
                 "id=" + id +
-                ", studentId=" + studentId +
-                ", subjectId=" + subjectId +
                 ", student=" + student +
                 ", subject=" + subject +
                 ", grade=" + grade +

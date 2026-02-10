@@ -321,7 +321,7 @@ public class UniversityManager {
 */
         //solve this method second way
         Subject subject = getSubjectById(subjectId);
-        if (subject == null){
+        if (subject == null) {
             System.out.println("Subject not found. Mazgi");
             return new Student[0];
         }
@@ -332,11 +332,23 @@ public class UniversityManager {
     /*
      * Exam
      */
-    public Exam createExam(Integer studentId, Integer subjectId, Integer grade){
+    public Exam createExam(Integer studentId, Integer subjectId, Integer grade) {
+        Student student = getStudentById(studentId);
+        if (student == null) {
+            System.out.println("Student not found");
+            return null;
+        }
+
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null) {
+            System.out.println("Subject not found");
+            return null;
+        }
+
         Exam exam = new Exam();
         exam.setId(generalId++);
-        exam.setStudentId(studentId);
-        exam.setSubjectId(subjectId);
+        exam.setStudent(student);
+        exam.setSubject(subject);
         exam.setGrade(grade);
         exam.setCreatedDate(LocalDate.now());
 
@@ -349,5 +361,75 @@ public class UniversityManager {
         }
         examList[examIndex++] = exam;
         return exam;
+    }
+
+    public Exam[] getStudentExamList(Integer studentId) {
+        Exam[] tempArr = new Exam[10];
+        int tempIndex = 0;
+        for (int i = 0; i < examList.length; i++) {
+            if (examList[i] != null && examList[i].getStudentId().equals(studentId)) {
+
+                if (examList.length == examIndex) {
+                    Exam[] newArray = new Exam[examList.length * 2];
+                    for (int j = 0; j < examList.length; j++) {
+                        newArray[j] = examList[j];
+                    }
+                    examList = newArray;
+                }
+                tempArr[tempIndex++] = examList[i];
+            }
+        }
+        return tempArr;
+    }
+
+    public Student[] getStudentListByExamSubjectId(Integer subjectId) {
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null) {
+            System.out.println("Subject not found.");
+            return new Student[0];
+        }
+
+        Student[] studentList = getStudentListBySubjectId(subjectId);
+        for (Student student : studentList) {
+            if (student != null) {
+                Exam[] studentExamList = getStudentExamList(student.getId());
+                return studentExamList != null ? studentList : null;
+            }
+        }
+
+        return null;
+    }
+
+    public Exam[] getStudentListByExamGrate(Integer subjectId, Integer grade) {
+        Student[] tempStudent = new Student[10];
+        int tempArray = 0;
+
+        Subject subject = getSubjectById(subjectId);
+        if (subject == null) {
+            System.out.println("Subject not found.");
+            return null;
+        }
+
+        Student[] studentList = getStudentListBySubjectId(subjectId);
+        for (Student student : studentList) {
+            if (student == null) {
+                System.out.println("Student not found.");
+                break;
+            }
+
+            Exam[] studentExamList = getStudentExamList(student.getId());
+            for (Exam exam : studentExamList) {
+                if (exam == null) {
+                    System.out.println("Exam not found.");
+                    break;
+                }
+
+                if (exam.getGrade().equals(grade)) {
+                    return examList;
+                }
+            }
+        }
+
+        return null;
     }
 }

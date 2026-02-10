@@ -1,3 +1,5 @@
+import javax.swing.plaf.synth.SynthTableUI;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -115,6 +117,31 @@ public class Main {
          */
 
         Exam exam1 = university.createExam(student1.getId(), subjectJava.getId(), 5);
-        System.out.println(exam1.toString());
+        Exam exam2 = university.createExam(student2.getId(), subjectJava.getId(), 5);
+        Exam exam3 = university.createExam(student3.getId(), subjectJava.getId(), 2);
+//        System.out.println(exam1.toString());
+//        System.out.println(exam2.toString());
+//        System.out.println(exam3.toString());
+/*
+        Exam[] studentExamList = university.getStudentExamList(student1.getId());
+        for (Exam exam : studentExamList){
+            if (exam != null){
+                System.out.println(exam);
+            }
+        }*/
+
+        /*Student[] studentList = university.getStudentListBySubjectId(subjectIT.getId());
+        for (Student student : studentList){
+            if (student != null){
+                System.out.println(student);
+            }
+        }*/
+
+        Exam[] temStudentList = university.getStudentListByExamGrate(subjectJava.getId(), 5);
+        for (Exam student : temStudentList) {
+            if (student != null) {
+                System.out.println(student);
+            }
+        }
     }
 }
