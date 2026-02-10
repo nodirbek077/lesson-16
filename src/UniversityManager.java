@@ -24,6 +24,10 @@ public class UniversityManager {
     private Student[] studentArray = new Student[10];
     private int studentIndex = 0;
 
+    //Exam
+    private Exam[] examList = new Exam[10];
+    private int examIndex = 0;
+
     public UniversityManager(String universityName) {
         this.universityName = universityName;
     }
@@ -323,5 +327,27 @@ public class UniversityManager {
         }
 
         return subject.getStudentArray();
+    }
+
+    /*
+     * Exam
+     */
+    public Exam createExam(Integer studentId, Integer subjectId, Integer grade){
+        Exam exam = new Exam();
+        exam.setId(generalId++);
+        exam.setStudentId(studentId);
+        exam.setSubjectId(subjectId);
+        exam.setGrade(grade);
+        exam.setCreatedDate(LocalDate.now());
+
+        if (examList.length == examIndex) {
+            Exam[] newArray = new Exam[examList.length * 2];
+            for (int i = 0; i < examList.length; i++) {
+                newArray[i] = examList[i];
+            }
+            examList = newArray;
+        }
+        examList[examIndex++] = exam;
+        return exam;
     }
 }
