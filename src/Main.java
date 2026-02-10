@@ -112,35 +112,52 @@ public class Main {
             }
         }*/
 
+
         /*
          * Exam
          */
-
         Exam exam1 = university.createExam(student1.getId(), subjectJava.getId(), 5);
-        Exam exam2 = university.createExam(student2.getId(), subjectJava.getId(), 5);
-        Exam exam3 = university.createExam(student3.getId(), subjectJava.getId(), 2);
+        Exam exam2 = university.createExam(student2.getId(), subjectJava.getId(), 2);
+        Exam exam3 = university.createExam(student3.getId(), subjectJava.getId(), 5);
 //        System.out.println(exam1.toString());
 //        System.out.println(exam2.toString());
 //        System.out.println(exam3.toString());
-/*
-        Exam[] studentExamList = university.getStudentExamList(student1.getId());
+       /* Exam[] studentExamList = university.getStudentExamList(student1.getId());
         for (Exam exam : studentExamList){
             if (exam != null){
                 System.out.println(exam);
             }
         }*/
 
-        /*Student[] studentList = university.getStudentListBySubjectId(subjectIT.getId());
-        for (Student student : studentList){
-            if (student != null){
+//        Student[] studentList = university.getStudentListByExamSubjectId(subjectJava.getId());
+//        for (Student student : studentList){
+//            if (student != null){
+//                System.out.println(student);
+//            }
+//        }
+
+        /*Student[] temStudentList = university.getStudentListByExamGrate(subjectJava.getId(), 5);
+        for (Student student : temStudentList) {
+            if (student != null) {
                 System.out.println(student);
             }
         }*/
 
-        Exam[] temStudentList = university.getStudentListByExamGrate(subjectJava.getId(), 5);
-        for (Exam student : temStudentList) {
-            if (student != null) {
-                System.out.println(student);
+        /*
+         * Event
+         */
+        Event event1 = university.createEvent("Java Concurrency", professor1.getId());
+        Event event2 = university.createEvent("Java OOP", professor1.getId());
+        Event event3 = university.createEvent("Java Memory Management", professor3.getId());
+        /*System.out.println(event1);
+        System.out.println(event2);
+        System.out.println(event3);
+        */
+
+        Event[] tempEvents = university.getEventListByProfessorId(professor1.getId());
+        for (Event event : tempEvents){
+            if (event != null){
+                System.out.println(event);
             }
         }
     }

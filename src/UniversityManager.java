@@ -28,6 +28,10 @@ public class UniversityManager {
     private Exam[] examList = new Exam[10];
     private int examIndex = 0;
 
+    //Event
+    private Event[] eventList = new Event[10];
+    private int eventIndex = 0;
+
     public UniversityManager(String universityName) {
         this.universityName = universityName;
     }
@@ -364,72 +368,83 @@ public class UniversityManager {
     }
 
     public Exam[] getStudentExamList(Integer studentId) {
-        Exam[] tempArr = new Exam[10];
+        Exam[] tempArr = new Exam[examIndex];
         int tempIndex = 0;
-        for (int i = 0; i < examList.length; i++) {
-            if (examList[i] != null && examList[i].getStudentId().equals(studentId)) {
-
-                if (examList.length == examIndex) {
-                    Exam[] newArray = new Exam[examList.length * 2];
-                    for (int j = 0; j < examList.length; j++) {
-                        newArray[j] = examList[j];
-                    }
-                    examList = newArray;
-                }
-                tempArr[tempIndex++] = examList[i];
+        for (Exam exam : examList) {
+            if (exam != null && exam.getStudentId().equals(studentId)) {
+                tempArr[tempIndex++] = exam;
             }
         }
         return tempArr;
     }
 
     public Student[] getStudentListByExamSubjectId(Integer subjectId) {
-        Subject subject = getSubjectById(subjectId);
-        if (subject == null) {
-            System.out.println("Subject not found.");
-            return new Student[0];
-        }
-
-        Student[] studentList = getStudentListBySubjectId(subjectId);
-        for (Student student : studentList) {
-            if (student != null) {
-                Exam[] studentExamList = getStudentExamList(student.getId());
-                return studentExamList != null ? studentList : null;
+        Student[] tempArray = new Student[examIndex];
+        int tempIndex = 0;
+        for (Exam exam : examList) {
+            if (exam != null && exam.getSubjectId().equals(subjectId)) {
+                tempArray[tempIndex++] = exam.getStudent();
             }
         }
 
-        return null;
+        return tempArray;
     }
 
-    public Exam[] getStudentListByExamGrate(Integer subjectId, Integer grade) {
-        Student[] tempStudent = new Student[10];
-        int tempArray = 0;
+    public Student[] getStudentListByExamGrate(Integer subjectId, Integer grade) {
+        Student[] tempArray = new Student[studentIndex];
+        int tempIndex = 0;
 
-        Subject subject = getSubjectById(subjectId);
-        if (subject == null) {
-            System.out.println("Subject not found.");
+        for (Exam exam : examList) {
+            if (exam != null && exam.getSubjectId().equals(subjectId) && exam.getGrade().equals(grade)) {
+                tempArray[tempIndex++] = exam.getStudent();
+            }
+        }
+
+        return tempArray;
+    }
+
+    /*
+     * Event
+     */
+    public Event createEvent(String name, Integer professorId) {
+        Professor professor = getProfessorById(professorId);
+        if (professor == null) {
+            System.out.println("Professor not found.");
             return null;
         }
 
-        Student[] studentList = getStudentListBySubjectId(subjectId);
-        for (Student student : studentList) {
-            if (student == null) {
-                System.out.println("Student not found.");
-                break;
+        Event event = new Event();
+        event.setId(generalId++);
+        event.setName(name);
+        event.setProfessor(professor);
+        event.setCreatedDate(LocalDate.now());
+
+        if (eventList.length == eventIndex) {
+            Event[] newArr = new Event[eventList.length * 2];
+            for (int i = 0; i < eventList.length; i++) {
+                newArr[i] = eventList[i];
             }
+            eventList = newArr;
+        }
+        eventList[eventIndex++] = event;
+        return event;
+    }
 
-            Exam[] studentExamList = getStudentExamList(student.getId());
-            for (Exam exam : studentExamList) {
-                if (exam == null) {
-                    System.out.println("Exam not found.");
-                    break;
-                }
+    public Event[] getEventListByProfessorId(Integer professorId) {
+        Professor professor = getProfessorById(professorId);
+        if (professor == null) {
+            System.out.println("Professor not found.");
+            return null;
+        }
 
-                if (exam.getGrade().equals(grade)) {
-                    return examList;
-                }
+        Event[] tempEvent = new Event[eventIndex];
+        int tempIndex = 0;
+        for (Event event : eventList) {
+            if (event != null && event.getProfessorId().equals(professorId)) {
+                tempEvent[tempIndex++] = event;
             }
         }
 
-        return null;
+        return tempEvent;
     }
 }
