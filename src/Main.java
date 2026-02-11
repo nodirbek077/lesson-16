@@ -31,10 +31,9 @@ public class Main {
         /*
          * Dean
          */
-        /*Dean dean1 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Math", 12.1);
+        Dean dean1 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Math", 12.1);
         Dean dean2 = university.createDean("Vali", "Valiyev", 20, "20.06.2012", "IT", 10.1);
         Dean dean3 = university.createDean("Ali", "Aliyev", 18, "27.01.2002", "Mathe", 22.1);
-*/
 //        System.out.println(university.getDeanById(dean2.getId()));
 //        System.out.println(university.getDeanEmployedDateById(dean1.getId()));
 
@@ -43,11 +42,11 @@ public class Main {
         /*
           Security
          */
-        /*Security security1 = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General");
-        Security security2 = university.createSecurity("Lazizbek", "Nurqulov", 39, "1996-06-21", 2500.0, "General");
-        Security security3 = university.createSecurity("Nodirbek", "Nurqulov", 49, "1996-06-21", 2500.0, "Mayyor");
+        Security security1 = university.createSecurity("Nodirbek", "Nurqulov", 29, "1996-06-21", 2500.0, "General");
+        Security security2 = university.createSecurity("Lazizbek", "Nurqulov", 39, "1996-06-21", 3500.0, "Afitser");
+        Security security3 = university.createSecurity("Ramzbek", "Nurqulov", 49, "1998-07-25", 2000.0, "Mayyor");
 //        System.out.println(security);
-
+/*
         Security[] securityArrayTemp = university.getSecurityListByMilitaryRank("General");
         for (Security security : securityArrayTemp) {
             if (security != null) {
@@ -154,11 +153,22 @@ public class Main {
         System.out.println(event3);
         */
 
-        Event[] tempEvents = university.getEventListByProfessorId(professor1.getId());
+        /*Event[] tempEvents = university.getEventListByProfessorId(professor1.getId());
         for (Event event : tempEvents){
             if (event != null){
                 System.out.println(event);
             }
+        }*/
+
+        /*
+         * General methods
+         */
+        Object[] allEmployeeList = university.getAllEmployeeList();
+        for (Object object : allEmployeeList) {
+            System.out.println(object);
         }
+
+        Double allEmployeeListSalary = university.getAllEmployeeListSalary();
+        System.out.println(allEmployeeListSalary);
     }
 }

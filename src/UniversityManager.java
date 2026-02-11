@@ -447,4 +447,54 @@ public class UniversityManager {
 
         return tempEvent;
     }
+
+    /*
+     * General methods
+     */
+    public Object[] getAllEmployeeList() {
+        Object[] allEmployeeList = new Object[professorIndex + deanIndex + securityIndex];
+        int tempIndex = 0;
+        for (Professor professor : professorArray) {
+            if (professor != null){
+                allEmployeeList[tempIndex++] = professor;
+            }
+        }
+
+        for (Dean dean : deanArray) {
+            if (dean != null){
+                allEmployeeList[tempIndex++] = dean;
+            }
+        }
+
+        for (Security security : securityArray) {
+            if (security != null){
+                allEmployeeList[tempIndex++] = security;
+            }
+        }
+
+        return allEmployeeList;
+    }
+
+    public Double getAllEmployeeListSalary() {
+        Double totalSalary = 0.0;
+
+        for (Professor professor : professorArray) {
+            if (professor != null){
+                totalSalary += professor.getSalary();
+            }
+        }
+
+        for (Dean dean : deanArray) {
+            if (dean != null){
+                totalSalary += dean.getSalary();
+            }
+        }
+
+        for (Security security : securityArray) {
+            if (security != null){
+                totalSalary += security.getSalary();
+            }
+        }
+        return totalSalary;
+    }
 }
