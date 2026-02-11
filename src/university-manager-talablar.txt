@@ -143,4 +143,11 @@ Talab 9:
         getAllEmployeeList() - univerdagi barcha ishchilar ro'yxatini reture qiling.
         getAllEmployeeListSalary() - univerdagi ishchilar oyligini return qiling.
 
+Talab 10 (o'zim TZ ga qo'shgan qo'shimcha qism): Face ID Authentikatsiya tizimi - bunda face id orqali universitetdagi xodimlarni va studentlarni authentikatsiyadan o'tkazadi
+       checkAllEmployees() metodi xodimlarni va studentlarni tizimga kirishdan oldin tekshirish uchun ishlatiladi. Agar xodim shu universitetda ishlasa u holda "Xush kelibsiz" degan xabar aks holda
+       "Siz bu yerda ishlamaysiz" degan xabarni chiqarishi kerak bo'ladi
+        Metod quyidagi ma'lumotni qabul qiladi:
+          employeeId - ishchining yoki talabaning ID si
+       Oxirgi marta ro'yxatdan o'tgan vaqtini ham hisoblab borishimiz kerak. verifiedDate ni olib ketishimiz kerak bo'ladi
+
 Happy coding :).

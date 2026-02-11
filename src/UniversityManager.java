@@ -455,19 +455,19 @@ public class UniversityManager {
         Object[] allEmployeeList = new Object[professorIndex + deanIndex + securityIndex];
         int tempIndex = 0;
         for (Professor professor : professorArray) {
-            if (professor != null){
+            if (professor != null) {
                 allEmployeeList[tempIndex++] = professor;
             }
         }
 
         for (Dean dean : deanArray) {
-            if (dean != null){
+            if (dean != null) {
                 allEmployeeList[tempIndex++] = dean;
             }
         }
 
         for (Security security : securityArray) {
-            if (security != null){
+            if (security != null) {
                 allEmployeeList[tempIndex++] = security;
             }
         }
@@ -479,22 +479,47 @@ public class UniversityManager {
         Double totalSalary = 0.0;
 
         for (Professor professor : professorArray) {
-            if (professor != null){
+            if (professor != null) {
                 totalSalary += professor.getSalary();
             }
         }
 
         for (Dean dean : deanArray) {
-            if (dean != null){
+            if (dean != null) {
                 totalSalary += dean.getSalary();
             }
         }
 
         for (Security security : securityArray) {
-            if (security != null){
+            if (security != null) {
                 totalSalary += security.getSalary();
             }
         }
         return totalSalary;
+    }
+
+    /*
+     * Face ID
+     */
+    public String checkAllEmployees(Integer employeeId) {
+        for (Professor professor : professorArray) {
+            if (professor != null && professor.getId().equals(employeeId)) {
+                return "Welcome " + professor.getName();
+            }
+        }
+
+        for (Dean dean : deanArray) {
+            if (dean != null && dean.getId().equals(employeeId)) {
+                return "Welcome " + dean.getName();
+            }
+        }
+
+        for (Security security : securityArray) {
+            if (security != null && security.getId().equals(employeeId)) {
+                return "Welcome " + security.getName();
+            }
+        }
+
+        return "You're not allowed to access!";
     }
 }

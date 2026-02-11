@@ -170,5 +170,11 @@ public class Main {
 
         Double allEmployeeListSalary = university.getAllEmployeeListSalary();
         System.out.println(allEmployeeListSalary);
+
+        /*
+         * Face ID
+         */
+        String check1 = university.checkAllEmployees(100);
+        System.out.println(check1);
     }
 }
